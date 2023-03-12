@@ -6,6 +6,10 @@ import dotenv from "dotenv";
 import cors from "cors";
 import authRoute from "./routes/Auth.js"
 import usersRoute from "./routes/Users.js"
+import productsRoute from "./routes/Products.js"
+import cartRoute from "./routes/Cart.js"
+import orderRoute from "./routes/Order.js";
+import stripeRoute from "./routes/Stripe.js"
 import cookieParser from "cookie-parser";
 
 
@@ -17,9 +21,15 @@ app.use(cors())
 app.use(cookieParser())
 app.use(express.json())
 
-app.use("/api/users" , usersRoute)
+
+
 app.use('/api/auth' , authRoute)
-app.use((err,req,res,next)=>{
+app.use("/api/users" , usersRoute)
+app.use("/api/product" ,productsRoute )
+app.use("/api/cart" , cartRoute)
+app.use("/api/order", orderRoute)
+app.use("/api/stripe" , stripeRoute)
+app.use((err,res,)=>{
 
     const errorStatus = err.status ||500
     const errorMessage = err.message ||"Something went wrong"
@@ -32,18 +42,6 @@ app.use((err,req,res,next)=>{
         stack:err.stack,
     })
 })
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 const connect = async () =>{
