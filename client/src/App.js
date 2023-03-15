@@ -2,23 +2,28 @@
 
 
 import {BrowserRouter , Routes , Route} from "react-router-dom"
-import Pay from "./Pay"
-import Success from "./Success";
+
+import Home from "./pages/Home"
 import './App.css';
+import DashboardLayout from "./layout/DashboardLayout";
 
 function App() {
   return (
 
-  
-        <BrowserRouter>
+            
+      <>
 
-              <Routes>
 
-                  <Route path="/pay" element={<Pay /> } /> 
-                  <Route path="/success" element={<Success/> } /> 
-              </Routes>
 
-        </BrowserRouter>
+   <BrowserRouter>
+         <Routes>
+                  <Route path="/" element={<DashboardLayout />} > 
+                  <Route index  element={<Home />}/>
+                 </Route>
+             </Routes>
+
+       </BrowserRouter>
+       </>
 
   );
 }

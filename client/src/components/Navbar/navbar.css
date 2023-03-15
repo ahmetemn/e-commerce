@@ -1,0 +1,98 @@
+.Navbar{
+    background-color:white
+}
+.navbarLogo{
+    width:220px;
+    max-height:100px
+}
+
+.navForm{
+    margin-top:-3rem
+} 
+
+.navbarToggle{
+    margin-bottom:30px;
+    float:right
+}
+.navFormControl{
+    border-radius:25px 0px 0px 25px;
+    width:650px;
+    max-height:50px;
+    font-weight:600
+}
+.navFormButton{
+    border-radius:0px 10px 10px 0px;
+    max-height:50px;
+
+}
+
+.Navbar i { 
+    color:orange
+}
+
+.navBadge{
+    font-size:12px;
+    margin-top:-2rem;
+    float:right
+}
+.navFormIcons{
+    margin-top:-3rem
+}
+
+.Navbar span{
+    font-weight:600
+}
+
+@media (max-width: 575.98px) { 
+
+    .navbarLogo{
+        width:130px
+    }
+
+    .navForm{
+        display:flex;
+        justify-content: center;
+    }
+    .navFormControl{
+        
+        display:flex;
+       
+        margin-top:40px;
+        width:220px;
+       
+     }
+     .navFormButton{
+        margin-top:40px;
+     }
+     .navbariconlar{
+        display: flex;
+        justify-content: space-evenly;
+        Z-Index:1000;
+        position: -webkit-sticky;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+       
+     }
+     .navbariconlar span{
+        font-weight:100;
+        font-size:14px;
+        padding:10px
+     }
+   
+    
+  }
+ 
+ // Small devices (landscape phones, less than 768px)
+ @media  (max-width: 767.98px) { 
+    
+  }
+ 
+ // Medium devices (tablets, less than 992px)
+ @media (max-width: 991.98px) { 
+   
+  }
+  @media (max-width: 1000.98px) { 
+   
+  }

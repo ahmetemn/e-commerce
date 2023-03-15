@@ -1,0 +1,46 @@
+.Topbar{
+    display:flex;
+    justify-content:center;
+    background-color:#8ad3eb
+}
+
+
+.Topbar  .topbarLink{
+    text-decoration: none;
+    color:white
+}
+
+.Topbar .topbaricon{
+  color:white;
+  font-size:20px;
+  font-weight:600
+}
+
+.Topbar .topbarbutton{
+    border-radius:200px;
+    font-weight:600
+}
+@media (max-width: 575.98px) { 
+   .Topbar{
+    display:none
+   }
+ }
+
+// Small devices (landscape phones, less than 768px)
+@media  (max-width: 767.98px) { 
+    .Topbar{
+        display:none
+       }
+ }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { 
+    .Topbar{
+        display:none
+       }
+ }
+ @media (max-width: 1000.98px) { 
+    .Topbar{
+        display:none
+       }
+ }
