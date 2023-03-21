@@ -18,7 +18,7 @@ router.get("/stats" , verifyTokenAndAdmin , getUserStats)
 //GET
 router.get("/:id", verifyTokenAndAdmin, getIdUser);
 
-router.get("/", verifyTokenAndAdmin, getAllUser);
+router.get("/", getAllUser);
 
 //Get User Stats
 
