@@ -9,35 +9,36 @@ import Topbar from '../Topbar/Topbar';
 import Badge from 'react-bootstrap/Badge';
 import Image from 'react-bootstrap/Image'
 import "./navbar.css"
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const OffcanvasExample = () => {
+  const cart = useSelector((state) => state.cart);
   return (
-
     <>
-
-
       <Topbar />
-
       {['xxl'].map((expand) => (
-        <Navbar key={expand} expand={expand} className="Navbar mb-3 container" >
+        <Navbar key={expand} expand={expand} className="Navbar  container" >
           <Container fluid>
-
             <Navbar.Brand href="#">
-              <Image className='navbarLogo' src="https://i.hizliresim.com/ewlmp2y.png" />
+              <Image className='navbarLogo px-4 ' src="https://i.hizliresim.com/scb08xy.png" />
             </Navbar.Brand>
-
-            <Navbar.Toggle  className='navbarToggle' aria-controls={`offcanvasNavbar-expand-${expand}`}/>
+            <Navbar.Toggle className='navbarToggle' aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
               placement="end"
-
+              className="navbarbody"
             >
-              <Offcanvas.Header closeButton  style={{float:"end"}}>
+              <Offcanvas.Header closeButton style={{ float: "end" }}>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                <Image className='navbarLogo px-2 ' src="https://i.hizliresim.com/ewlmp2y.png" />
+                  <Image className='navbarLogo px-2 ' src="https://i.hizliresim.com/ewlmp2y.png" />
                 </Offcanvas.Title>
               </Offcanvas.Header>
-              <Offcanvas.Body>
+              <Offcanvas.Body className='navbarbody'>
+                {/*buraya yapacağımız işlem sadece vs  */}
+
+
+                <Nav.Link className='navlink123' href="#action2">Link</Nav.Link>
 
               </Offcanvas.Body>
             </Navbar.Offcanvas>
@@ -56,49 +57,57 @@ const OffcanvasExample = () => {
                 </Form>
               </div>
 
-            <div className='navbariconlar'>
 
-              <div className='navFormIcons d-flex '>
 
-                <div className='navbarLogin d-flex  justify-content-between  flex-grow-1'>
-                  <Nav.Link href="#action1">
+
+
+
+
+
+              <div className='navbariconlar d-flex   '>
+
+                <div className='navbarLogin d-flex '>
+                  <Link to="/auth/login">
                     <i className="fa-solid fa-user fa-xl" >
                     </i>
-                  </Nav.Link>
-                  <span>Giriş Yap &<span style={{ color: "#8ad3eb" }}>Üye Ol</span></span>
+                  </Link>
+                    <span className=''>Giriş Yap & <Link to="/auth/register" style={{textDecoration:"none"}}> <span style={{ color: "#8ad3eb" }}>Üye Ol</span></Link></span>                  
                 </div>
+             
 
 
 
-               
-              
-                <Nav.Link  href="#action2">
-                  <i className="fa-solid fa-truck fa-xl" ></i>
+
+
+                <Nav.Link href="#action2" >
+                  <i className="navcargoicon fa-solid fa-truck fa-xl" ></i>
+
                 </Nav.Link>
-                <span>Kargom Nerede </span>
-                    
-              
+                <span className='d-flex '>Kargom Nerede </span>
 
 
 
-               
 
-                
+
+
+
+
                 <Nav.Link href="#action2">
 
-                  <div className='navboxicon mt-2'>
-                
-                    <i className=" fa-solid fa-basket-shopping fa-xl ">
-                    
-                    <Badge className='navBadge' pill bg="danger">9</Badge>
-                    
-                    
-                    </i>
-                  </div>
+
+
+                  <i className="navboxicon fa-solid fa-basket-shopping fa-xl ">
+
+                    <Badge className='navBadge' pill bg="danger" style={{ fontSize: "12px" }}>{cart.products.length}</Badge>
+
+
+                  </i>
+
+
                 </Nav.Link>
-                </div>
               </div>
-             
+
+
             </Nav>
 
           </Container>

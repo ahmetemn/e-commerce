@@ -1,13 +1,15 @@
 .Navbar{
-    background-color:white
+    background-color:white;
+    height:70px
 }
 .navbarLogo{
-    width:220px;
-    max-height:100px
+    width:180px;
+    max-height:70px;
+    
 }
 
 .navForm{
-    margin-top:-3rem
+    
 } 
 
 .navbarToggle{
@@ -16,7 +18,7 @@
 }
 .navFormControl{
     border-radius:25px 0px 0px 25px;
-    width:650px;
+    width:600px;
     max-height:50px;
     font-weight:600
 }
@@ -35,8 +37,8 @@
     margin-top:-2rem;
     float:right
 }
-.navFormIcons{
-    margin-top:-3rem
+.navbariconlar{
+  
 }
 
 .Navbar span{
@@ -44,9 +46,12 @@
 }
 
 @media (max-width: 575.98px) { 
-
+  
     .navbarLogo{
-        width:130px
+        position:absolute;
+        left:0px;
+        top:0px;
+      
     }
 
     .navForm{
@@ -58,41 +63,59 @@
         display:flex;
        
         margin-top:40px;
-        width:220px;
+        width:210px;
        
      }
      .navFormButton{
         margin-top:40px;
      }
      .navbariconlar{
-        display: flex;
-        justify-content: space-evenly;
+        display:flex;
+        justify-content:center;
         Z-Index:1000;
         position: -webkit-sticky;
         position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-       
+        left:0;
+        bottom: 0px;
+        width:100%;
+        background-color:whitesmoke;
+        
+      
      }
      .navbariconlar span{
-        font-weight:100;
-        font-size:14px;
+        font-weight:600;
+        font-size:12px;
         padding:10px
+
+        
+        
      }
-   
     
   }
  
+  @media(max-width: 575.99px){
+    .navbariconlar{
+        display:none
+    }
+}
+
  // Small devices (landscape phones, less than 768px)
  @media  (max-width: 767.98px) { 
-    
+   
   }
  
  // Medium devices (tablets, less than 992px)
- @media (max-width: 991.98px) { 
-   
+ @media (min-width: 991.98px) { 
+    
   }
-  @media (max-width: 1000.98px) { 
-   
+  @media (max-width: 1600.98px) { 
+      .navbariconlar{
+        display:none;
+      }
+  }
+
+  @media(min-width: 1000.98px){
+        .navbarbody{
+            display:none
+        }
   }
