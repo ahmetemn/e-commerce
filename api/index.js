@@ -63,7 +63,7 @@ mongoose.connection.on("disconnected" , ()=>{
 
 
 
-const Port =2800
+const Port =process.env.PORT || 2800
 app.listen(Port , ()=>{
     connect();
 } )

@@ -23,7 +23,7 @@ const ProductSchema = new Schema({
  
     },
     size: {
-        type: String ,
+        type: Array ,
         required: true ,
     },
     color: {
@@ -33,6 +33,10 @@ const ProductSchema = new Schema({
     price: {
         type: Number,
         required: true
+    },
+    inStock:{
+        type:Boolean,
+        default:true,
     }
 
 
