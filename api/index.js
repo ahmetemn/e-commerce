@@ -17,6 +17,7 @@ import cookieParser from "cookie-parser";
 mongoose.set('strictQuery', false)
 dotenv.config()
 const app  = express()
+const port = process.env.PORT || 2800
 app.use(cors())
 app.use(cookieParser())
 app.use(express.json())
@@ -63,7 +64,6 @@ mongoose.connection.on("disconnected" , ()=>{
 
 
 
-const Port = 2800
-app.listen(Port , ()=>{
+app.listen(port , ()=>{
     connect();
 } )
