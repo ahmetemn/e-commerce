@@ -74,7 +74,7 @@ const Register = () => {
       
       <div className="d-grid gap-2">
       <Button variant="primary"  type="submit">
-        {loading ?     <Spinner animation="border" variant="primary" /> : "Kayit Başarılı" }  Kayıt Ol
+        Kayıt Ol
       </Button>
       
     </div>
