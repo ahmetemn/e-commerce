@@ -30,14 +30,14 @@ const Register = () => {
            body: JSON.stringify(values),
            headers: { "Content-type": "application/json; charset=UTF-8" },
          })
-         setLoading(true)  
+        
           if(res.status===201)
           { 
             
            alert("Kayıt işlemi başarılı.");
            navigate("/auth/login");
           }
-          setLoading(false)
+         
 
      } catch (error) { 
       alert("Daha önce alınmış kullanıcı adı veya email")
