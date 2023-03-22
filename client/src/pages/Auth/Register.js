@@ -20,7 +20,7 @@ const Register = () => {
     onSubmit:async (values) => {
  
       try {
-        const res = await fetch("http://localhost:2800/api/auth/register",
+        const res = await fetch( process.env.REACT_APP_SERVER_URL + "/api/auth/register",
          {
            method: "POST",
            body: JSON.stringify(values),
