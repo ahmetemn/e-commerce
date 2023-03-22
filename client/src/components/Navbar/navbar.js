@@ -11,12 +11,19 @@ import Image from 'react-bootstrap/Image'
 import "./navbar.css"
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import SplitButton from 'react-bootstrap/SplitButton';
+
 const OffcanvasExample = () => {
   const cart = useSelector((state) => state.cart);
   return (
     <>
       <Topbar />
       {['xxl'].map((expand) => (
+
         <Navbar key={expand} expand={expand} className="Navbar  container" >
           <Container fluid>
             <Navbar.Brand href="#">
@@ -34,7 +41,7 @@ const OffcanvasExample = () => {
                   <Image className='navbarLogo px-2 ' src="https://i.hizliresim.com/ewlmp2y.png" />
                 </Offcanvas.Title>
               </Offcanvas.Header>
-              <Offcanvas.Body className='navbarbody'>
+              <Offcanvas.Body >
                 {/*buraya yapacağımız işlem sadece vs  */}
 
 
@@ -42,20 +49,20 @@ const OffcanvasExample = () => {
 
               </Offcanvas.Body>
             </Navbar.Offcanvas>
+
+
             <Nav className="justify-content-between flex-grow-1 px-4  ">
+              <Form className="inputForm d-flex justify-content-center container">
+                <Form.Control
+                  className='navFormControl'
+                  type="search"
+                  placeholder="Search..."
+                  aria-label="Search"
 
-              <div className='navForm d-flex justify-content-center container'>
-                <Form className="navformbtninput d-flex justify-content-center container">
-                  <Form.Control
-                    className='navFormControl'
-                    type="search"
-                    placeholder="Search..."
-                    aria-label="Search"
+                />
+                <Button className='navFormButton' variant="outline-primary"><i className="fa-solid fa-magnifying-glass"></i></Button>
+              </Form>
 
-                  />
-                  <Button className='navFormButton' variant="outline-primary"><i className="fa-solid fa-magnifying-glass"></i></Button>
-                </Form>
-              </div>
 
 
 
@@ -67,44 +74,90 @@ const OffcanvasExample = () => {
               <div className='navbariconlar d-flex   '>
 
                 <div className='navbarLogin d-flex '>
-                  <Link to="/auth/login">
-                    <i className="fa-solid fa-user fa-xl" >
-                    </i>
-                  </Link>
-                    <span className=''>Giriş Yap & <Link to="/auth/register" style={{textDecoration:"none"}}> <span style={{ color: "#8ad3eb" }}>Üye Ol</span></Link></span>                  
+
                 </div>
-             
 
 
 
+                <div class="dropdown">
 
-
-                <Nav.Link href="#action2" >
-                  <i className="navcargoicon fa-solid fa-truck fa-xl" ></i>
-
-                </Nav.Link>
-                <span className='d-flex '>Kargom Nerede </span>
-
-
-
-
-
-
-
-
-                <Nav.Link href="#action2">
-
-
-
-                  <i className="navboxicon fa-solid fa-basket-shopping fa-xl ">
-
-                    <Badge className='navBadge' pill bg="danger" style={{ fontSize: "12px" }}>{cart.products.length}</Badge>
-
+                  <i className="dropbtn fa-solid fa-user fa-xl p-2 mt-2" >
 
                   </i>
+                  <span className='mt-2'>Giriş Yap</span>
+
+                  <div class="dropdown-content">
+                    <Link to="/auth/register">
+                      <span className='mt-2'>Giriş Yap</span>
+                    </Link>
+
+                    <Link to="/auth/register">
+                      <span className='mt-2'>Kaydol</span>
+                    </Link>
+
+                  </div>
+                </div>
 
 
-                </Nav.Link>
+
+
+                <Link to="fav" >
+
+                  <i class="fa-solid fa-heart fa-xl p-2 mt-2"></i>
+
+                </Link>
+                <span className='mt-1'>Favorilerim</span>
+
+
+                <div className="mb-2">
+               
+                </div>
+
+
+
+
+
+                <div class="dropdown ">
+
+                  <Link to="box">
+                    <i className="navboxicon fa-solid fa-basket-shopping fa-xl  p-2 mt-2">
+                      <Badge className='navBadge' pill bg="danger">{cart.products.length}</Badge>
+                    </i>
+                  </Link>
+                  <span className='mt-1' style={{ zIndex: "2000", marginLeft: "-7px" }}>Sepet</span>
+
+                  <div class="dropdown-content dropleft">
+                    <div >
+                      <Row  >
+                        <Col className='d-flex justify-content-between'>
+                          <Col >
+                            <div>
+                              <Image style={{ maxWidth: "85px" }} className="p-1" src='https://cdn.cimri.io/image/320x320/sinem-avize-albert-2li-ledli-avize_440019392.jpg'></Image>
+                            </div>
+                          </Col>
+
+                          <Col >
+                            <div>
+                              Tekir Elektrik Avize
+                            </div>
+                          </Col>
+
+                        </Col>
+                      </Row>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
               </div>
 
 

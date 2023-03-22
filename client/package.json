@@ -22,7 +22,6 @@
     "react-stripe-checkout": "^2.6.3",
     "swiper": "^8.4.4",
     "web-vitals": "^2.1.4",
-    "webpack": "^4.19.1",
     "yarn": "^1.22.19",
     "yup": "^1.0.2"
   },
@@ -49,8 +48,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "webpack-cli": "^5.0.1"
   }
+
 }

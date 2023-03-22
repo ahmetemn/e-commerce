@@ -4,11 +4,10 @@ import "./Login.css";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import validations from "./Validation.js";
-import Alert from 'react-bootstrap/Alert';
 import { useNavigate } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
-import Spinner from 'react-bootstrap/Spinner';
+import SecondNav from "../../components/SecondNav/SecondNav.js"
 
 const Register = () => {
   const [loading , setLoading] = useState(false)
@@ -47,7 +46,11 @@ const Register = () => {
     validationSchema: validations
   });
   return (
-    <Container style={{ display: "flex", minHeight: "100vh", justifyContent: "center", alignItems: "center" }} >
+      <>
+
+     
+    <SecondNav></SecondNav>
+    <Container style={{ display: "flex", minHeight: "100vh", justifyContent: "center", alignItems: "center"  , alignItems:"start" , marginTop:"1rem"}} >
     <Card  style={{width:"25rem", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"}} >   
     <Form  className='p-3' onSubmit={formik.handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -83,6 +86,7 @@ const Register = () => {
     
     </Card>
     </Container>
+    </>
   )
 
 }
