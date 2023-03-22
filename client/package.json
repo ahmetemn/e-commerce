@@ -22,12 +22,13 @@
     "react-stripe-checkout": "^2.6.3",
     "swiper": "^8.4.4",
     "web-vitals": "^2.1.4",
+    "webpack": "^4.19.1",
     "yarn": "^1.22.19",
     "yup": "^1.0.2"
   },
   "scripts": {
-     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -48,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.0.1"
   }
 }
