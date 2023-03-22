@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import { useFormik } from 'formik';
 import "./Login.css";
 import Button from 'react-bootstrap/Button';
@@ -8,7 +8,10 @@ import Alert from 'react-bootstrap/Alert';
 import { useNavigate } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
+import Spinner from 'react-bootstrap/Spinner';
+
 const Register = () => {
+  const [loading , setLoading] = useState(false)
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -18,19 +21,23 @@ const Register = () => {
       passwordAgain: '',
     },
     onSubmit:async (values) => {
- 
+      
       try {
         const res = await fetch( process.env.REACT_APP_SERVER_URL + "/api/auth/register",
-         {
+          
+        {
            method: "POST",
            body: JSON.stringify(values),
            headers: { "Content-type": "application/json; charset=UTF-8" },
          })
+         setLoading(true)  
           if(res.status===201)
-          {
+          { 
+            
            alert("Kayıt işlemi başarılı.");
            navigate("/auth/login");
           }
+          setLoading(false)
 
      } catch (error) { 
       alert("Daha önce alınmış kullanıcı adı veya email")
@@ -67,7 +74,7 @@ const Register = () => {
       
       <div className="d-grid gap-2">
       <Button variant="primary"  type="submit">
-       Kayıt Ol
+        {loading ?     <Spinner animation="border" variant="primary" /> : "Kayit Başarılı" }  Kayıt Ol
       </Button>
       
     </div>
