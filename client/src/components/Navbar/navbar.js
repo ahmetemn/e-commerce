@@ -13,12 +13,14 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import SplitButton from 'react-bootstrap/SplitButton';
+import Card from 'react-bootstrap/Card';
+
+
 
 const OffcanvasExample = () => {
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user.currentUser);
+
   return (
     <>
       <Topbar />
@@ -26,9 +28,7 @@ const OffcanvasExample = () => {
 
         <Navbar key={expand} expand={expand} className="Navbar  container" >
           <Container fluid>
-            <Navbar.Brand href="#">
-              <Image className='navbarLogo px-4 ' src="https://i.hizliresim.com/scb08xy.png" />
-            </Navbar.Brand>
+            <Link to="/"><Image className='navbarLogo' style={{ maxWidth: "120px" }} src='https://i.hizliresim.com/q54kcok.png' /></Link>
             <Navbar.Toggle className='navbarToggle' aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -51,25 +51,20 @@ const OffcanvasExample = () => {
             </Navbar.Offcanvas>
 
 
-            <Nav className="justify-content-between flex-grow-1 px-4  ">
-              <Form className="inputForm d-flex justify-content-center container">
+            <Nav className="justify-content-between flex-grow-1 px-4   ">
+
+              <Form className="inputForm d-flex justify-content-center  container float-end">
                 <Form.Control
-                  className='navFormControl'
+                  style={{ borderRadius: "25px 0px 0px 25px" }}
                   type="search"
                   placeholder="Search..."
                   aria-label="Search"
 
                 />
+
                 <Button className='navFormButton' variant="outline-primary"><i className="fa-solid fa-magnifying-glass"></i></Button>
+
               </Form>
-
-
-
-
-
-
-
-
 
               <div className='navbariconlar d-flex   '>
 
@@ -87,7 +82,7 @@ const OffcanvasExample = () => {
                   <span className='mt-2'>Giriş Yap</span>
 
                   <div class="dropdown-content">
-                    <Link to="/auth/register">
+                    <Link to="/auth/login">
                       <span className='mt-2'>Giriş Yap</span>
                     </Link>
 
@@ -110,7 +105,7 @@ const OffcanvasExample = () => {
 
 
                 <div className="mb-2">
-               
+
                 </div>
 
 
@@ -126,24 +121,67 @@ const OffcanvasExample = () => {
                   </Link>
                   <span className='mt-1' style={{ zIndex: "2000", marginLeft: "-7px" }}>Sepet</span>
 
-                  <div class="dropdown-content dropleft">
+                  <div class="dropdown-content ">
                     <div >
-                      <Row  >
-                        <Col className='d-flex justify-content-between'>
-                          <Col >
-                            <div>
-                              <Image style={{ maxWidth: "85px" }} className="p-1" src='https://cdn.cimri.io/image/320x320/sinem-avize-albert-2li-ledli-avize_440019392.jpg'></Image>
-                            </div>
-                          </Col>
+                      <Card style={{ border: "none" }} className="p-1">
 
-                          <Col >
-                            <div>
-                              Tekir Elektrik Avize
-                            </div>
-                          </Col>
 
-                        </Col>
-                      </Row>
+
+                        {
+                          cart.products.map((item) => {
+                            return (
+                              <Row >
+                                <Col className='d-flex'>
+                                  <Col sm={4} >
+                                    <div>
+                                      <Image style={{ maxWidth: "65px" }} className="p-1 mt-2" src={item.img}></Image>
+                                    </div>
+                                  </Col>
+
+                                  <Col sm={8} className="d-flex " >
+                                    <div className=' p-1 '>
+                                      <span style={{ fontSize: "15px" }}>{item.title}</span>
+                                      <span className='d-flex'>{item.price}</span>
+                                    </div>
+                                    <hr />
+                                  </Col>
+                                </Col>
+                              </Row>
+                            )
+                          })
+                        }
+
+
+
+
+
+                      
+
+
+                     
+                       {
+                         user ?  <Link to="/box"> 
+                         
+                         <div className='d-flex justify-content-center'>
+                         
+                      <Button   variant="info" style={{ color: "white", fontWeight: "600" }}> Sepete Git </Button> 
+                       
+                      </div>
+                     </Link> : <Link to="/auth/login"> 
+                         
+                         <div className='d-flex justify-content-center'>
+                         
+                      <Button   variant="info" style={{ color: "white", fontWeight: "600" }}> Sepete Git </Button> 
+                       
+                      </div>
+                     </Link>  
+                       }
+                   
+                   
+                          
+                        
+                       
+                      </Card>
                     </div>
                   </div>
                 </div>

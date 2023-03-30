@@ -1,4 +1,4 @@
-import React ,{useState} from 'react'
+import React  from 'react'
 import { useFormik } from 'formik';
 import "./Login.css";
 import Button from 'react-bootstrap/Button';
@@ -10,7 +10,7 @@ import Card from 'react-bootstrap/Card';
 import SecondNav from "../../components/SecondNav/SecondNav.js"
 
 const Register = () => {
-  const [loading , setLoading] = useState(false)
+
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -50,7 +50,7 @@ const Register = () => {
 
      
     <SecondNav></SecondNav>
-    <Container style={{ display: "flex", minHeight: "100vh", justifyContent: "center", alignItems: "center"  , alignItems:"start" , marginTop:"1rem"}} >
+    <Container style={{ display: "flex", minHeight: "100vh", justifyContent: "center" , alignItems:"start" , marginTop:"1rem"}} >
     <Card  style={{width:"25rem", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"}} >   
     <Form  className='p-3' onSubmit={formik.handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
