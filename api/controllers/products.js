@@ -52,7 +52,7 @@ export const getProducts = async (req, res, next) => {
      //sort rating ! 
     try {
 
-        const getProducts = await Product();
+        const getProducts = await Product.find();
         res.status(200).json(getProducts)
 
     } catch (error) {
